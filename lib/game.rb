@@ -39,6 +39,8 @@ class Game
     end
   end
 
+  #Créer les nouveaux joueurs
+
   def new_players
     num = rand(1..10000)
     @@enemies_in_sight << Player.new("player#{num}")
@@ -58,6 +60,8 @@ class Game
       @players_left -= 2
     end
   end
+
+  #Menu qui permet de faire la distinction entre String et Integer
 
   def menu_choice(choice)
     
@@ -96,6 +100,8 @@ class Game
     end
   end
 
+  #Message de fin de partie
+
   def end_game(human_player)
     if human_player.life_points >= 0
       puts "BRAVO ! TU AS GAGNE !"
@@ -103,6 +109,8 @@ class Game
       puts "T'es mauvais Jack! Tu sais pas jouer AHAHHAHAHAHAHAHAHAHAHHAHAHAAH!"
     end
   end
+
+  #Menu qui contient tout le jeu
 
   def menu
     while is_still_ongoing?

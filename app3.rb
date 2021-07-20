@@ -10,7 +10,7 @@ require 'launchy'
 require_relative 'lib/game.rb'
 require_relative 'lib/player.rb'
 
-
+#Menu de lancement
   puts "-------------------------------------------------"
   puts "|Bienvenue sur 'ILS VEULENT TOUS MA POO' !      |"
   puts "|Le but du jeu est d'être le dernier survivant !|"
@@ -19,6 +19,8 @@ require_relative 'lib/player.rb'
   puts "Choisis un nom!"
   print ">"
   name = gets.chomp
+
+  #Lancement du jeu
 
   my_game = Game.new(name)
 

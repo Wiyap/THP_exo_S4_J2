@@ -10,6 +10,8 @@ require 'launchy'
 require_relative 'lib/game.rb'
 require_relative 'lib/player.rb'
 
+#Menu de lancement et création des joueurs
+
 puts "-------------------------------------------------"
 puts "|Bienvenue sur 'ILS VEULENT TOUS MA POO' !      |"
 puts "|Le but du jeu est d'être le dernier survivant !|"
@@ -22,6 +24,8 @@ user = HumanPlayer.new(name)
 
 bot1 = Player.new("Josiane")
 bot2 = Player.new("José")
+
+#Menu: champ de bataille ou le HumanPlayer affronte les bots
 
 while user.life_points > 0 && (bot1.life_points > 0 || bot2.life_points > 0)
 
@@ -52,6 +56,7 @@ while user.life_points > 0 && (bot1.life_points > 0 || bot2.life_points > 0)
     puts "Le temps que tu as pris pour faire #{choice} on laissé le temps a tes ennemis de t'attaquer!"
   end
   puts ""
+  
   if bot1.life_points > 0 || bot2.life_points > 0
     puts "Les autres joueurs attaquent!!"
     puts ""
@@ -63,6 +68,8 @@ while user.life_points > 0 && (bot1.life_points > 0 || bot2.life_points > 0)
   end
   puts "--------------------------------------------------------------------"
 end
+
+#Display si joeur a gagné ou perdu
 
 if user.life_points > 0
   puts "BRAVO ! TU AS GAGNE !"
