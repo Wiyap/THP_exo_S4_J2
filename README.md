@@ -1,8 +1,9 @@
 L'app.rb correspond à l'app 1.0 elle fait s'affronter 2 joueurs.
 
 
-L'app2.rb correspond à l'app 2.0:-La sous-classe HumanPlayer a été rajoutée.
+L'app2.rb correspond à l'app 2.0:
 
+                                  -La sous-classe HumanPlayer a été rajoutée.
 
                                   -Le HumanPlayer affronte 4 Player.
 
