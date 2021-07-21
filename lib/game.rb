@@ -23,7 +23,7 @@ class Game
   end
 
   def is_still_ongoing?
-    @players_left > 0 && @human_player.life_points > 0
+    @human_player.life_points > 0 && (@players_left > 0 || @@enemies_in_sight.length >0)
   end
 
   def show_players 
@@ -35,7 +35,9 @@ class Game
     puts "Les autres joueurs attaquent!!"
     puts ""
     @@enemies_in_sight.each do |n|
-      n.attacks(@human_player)
+      if @human_player.life_points > 0
+        n.attacks(@human_player)
+      end
     end
   end
 
@@ -49,15 +51,17 @@ class Game
 
   def new_players_in_sight
     de = rand(1..6)
-    if de == 1
-      puts "Aucun nouveau player en vu..."
-    elsif [2..4] === de
-      new_players
-      @players_left -= 1
-    else
-      new_players
-      new_players
-      @players_left -= 2
+    if @players_left > 0
+      if de == 1
+        puts "Aucun nouveau player en vu..."
+      elsif [2..4] === de
+        new_players
+        @players_left -= 1
+      else
+        new_players
+        new_players
+        @players_left -= 2
+      end
     end
   end
 
@@ -77,7 +81,7 @@ class Game
         @human_player.search_health_pack
       else
         puts "Tu essayes de faire #{choice} mais rien ne se passe..."
-        puts "Le temps que tu as pris pour faire #{choice} on laissé le temps a tes ennemis de t'attaquer!"
+        puts "Le temps que tu as pris pour faire #{choice} a laissé le temps a tes ennemis de t'attaquer!"
       end
     elsif choice.is_a? Integer
       case choice
